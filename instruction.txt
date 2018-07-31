@@ -1,0 +1,10 @@
+echo "$(minikube ip) staging.officematedevtech.co.th" | sudo tee -a /private/etc/hosts
+
+helm install -n ofm-fe-helm .
+
+helm upgrade ofm-fe-helm .   
+helm history ofm-fe-helm 
+
+helm rollback ofm-fe-helm 1
+
+helm delete --purge ofm-fe-helm   

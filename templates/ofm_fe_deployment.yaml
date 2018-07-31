@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ofm-fe
+  labels:
+    name: ofm-frontend
+    module: frontend
+    environment: staging
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: ofm-fe
+      module: frontend
+      environment: staging
+  template:
+    metadata:
+      labels:
+        name: ofm-fe
+        module: frontend
+        environment: staging
+    spec:
+      containers:
+        - name: ofm-fe
+          image: prch12/alpineweb:web1
+          ports:
+          - containerPort: 3000
+            protocol: TCP

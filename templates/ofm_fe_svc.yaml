@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ofm-fe
+  labels:
+    name: ofm-frontend
+    module: frontend
+    environment: staging
+spec:
+  selector:
+    name: ofm-fe
+    module: frontend
+    environment: staging
+
+  ports:
+   - port: 80
+     name: http
+     targetPort: 3000
+     protocol: TCP

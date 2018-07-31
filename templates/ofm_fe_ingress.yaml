@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-ofm-fe
+spec:
+  rules:
+  - host: staging.officematedevtech.co.th
+    http:
+      paths:
+      - backend:
+          serviceName: ofm-fe
+          servicePort: 80
